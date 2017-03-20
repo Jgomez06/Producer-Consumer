@@ -1,0 +1,34 @@
+Author:   Jonathan Castellanos-Gomez
+
+Producer-Consumer using Threads
+
+Purpose:
+
+This program uses threads to simulate a producer-consumer process
+
+Compilation and execution:
+
+To compile and run the program, move to the directory containing threads_cp.c and makefile1. Rename the make file to makefile and make sure there are no other make files in the current directory. Cxecute the terminal commnands:
+
+   	       		make 
+			./prodcon
+
+Description:
+
+The main program creates three threads, two producers and one consumer. A producer thread will put an item in one of two two buffers while there is space available. After it produces an item, it signals the consumer process. The consumer process removes items from the buffers while there are items avilable. After the consumer removes an item, it will signal the producer processes that there is space avaialable
+
+
+Producer-Consumer using processes and shared memory segment
+
+Purpose:
+
+This program uses processes to simulate a producer-consumer process
+
+Compilation and execution:
+
+To compile and run the program, move to the directory containing process_cp.c, consumer.c, producer.c and makefile2. Rename makefile2 to makefile and make sure there are no other makefiles in the current directory. Execute the terminal commands:
+
+   	       	       	make
+			./process_cp
+
+The main program creates three child processes, two producers and one consumer. A shared memory segment is also created in the main program which contains the shared buffers and synchornization mechanism. A producer process will put an item in one of two two buffers while there is space available. After it produces an item, it signals the consumer process. The consumer process removes items from buffers while there are items avilable. After the consumer removes an item, it will signal the producer processes that there is space available

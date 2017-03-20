@@ -1,0 +1,36 @@
+#C Compiler
+CC = gcc
+CFLAGS = -g
+
+all: process_cp consumer producer
+
+#server object to executable
+process_cp: process_cp.o 
+	$(CC) -pthread -o process_cp process_cp.o
+
+#Compile server source code 
+process_cp.o: process_cp.c
+	$(CC) $(CFLAGS) -c process_cp.c
+
+#Client object to executable 
+consumer: consumer.o 
+	$(CC) -o consumer consumer.o
+
+#Compile client source code
+consumer.o: consumer.c
+	$(CC) $(CFLAGS) -c consumer.c
+
+#Client object to executable 
+producer: producer.o 
+	$(CC) -o producer producer.o
+
+#Compile client source code
+prdoucer.o: producer.c
+	$(CC) $(CFLAGS) -c producer.c
+
+clean: 
+	rm -f *.o
+	rm -f *.txt
+	rm -f process_cp
+	rm -f consumer
+	rm -f producer

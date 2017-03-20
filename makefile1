@@ -1,0 +1,19 @@
+#C Compiler
+CC = gcc
+CFLAGS = -g
+
+all: thread_cp
+
+#main object to executable
+thread_cp: thread_cp.o 
+	$(CC) -pthread -o thread_cp thread_cp.o
+
+#Compile main source code 
+thread_cp.o: thread_cp.c
+	$(CC) $(CFLAGS) -c thread_cp.c
+
+clean: 
+	rm -f *.o
+	rm -f *.txt
+	rm -f thread_cp
+
